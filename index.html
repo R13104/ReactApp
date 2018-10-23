@@ -21,15 +21,23 @@
                     super(props)
 
                     this.state = {
-                        data: ''
+                        email: '',
+                        password: '',
                     }
 
-                    this.updateInput = this.updateInput.bind(this)
+                    this.updateEmail = this.updateEmail.bind(this)
+                    this.updatePassword = this.updatePassword.bind(this)
                 }
 
-                updateInput(e) {
+                updateEmail(e) {
                     this.setState({
-                        data: e.target.value
+                        email: e.target.value
+                    })
+                }
+
+                updatePassword(e) {
+                    this.setState({
+                        password: e.target.value
                     })
                 }
 
@@ -37,8 +45,12 @@
                     return (
                         <div>
                             <h1>React App</h1>
-                            <span>Email:</span> <input type="email" pattern=".+@globex.com" size="30" placeholder="Enter email" value={this.state.data} onChange={this.updateInput} required/>
-                            <span>{this.state.data}</span>
+                            <span>Email:</span> <input type="email" pattern=".+@globex.com" size="30" placeholder="Enter email" value={this.state.email} onChange={this.updateEmail} required/>
+                            <br />
+                            <br />
+                            <span>Password</span> <input type="password" id="password" name="password"
+                                                    minlength="8" required
+                                                    placeholder="8 characters minimum" value={this.state.password} onChange={this.updatePassword}/>
                         </div>
                     )
                 }
